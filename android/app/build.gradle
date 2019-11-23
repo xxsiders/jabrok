@@ -151,6 +151,7 @@ android {
         }
     }
     buildTypes {
+        
         debug {
             signingConfig signingConfigs.debug
         }
@@ -181,7 +182,8 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
+    androidTestImplementation('com.wix:detox:+') { transitive = true } 
+    androidTestImplementation 'junit:junit:4.12'
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
         debugImplementation files(hermesPath + "hermes-debug.aar")
